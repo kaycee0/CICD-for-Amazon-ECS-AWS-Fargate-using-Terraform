@@ -1,0 +1,14 @@
+#Start by switching to the petclinic directory:
+
+cd ../petclinic
+
+#Set up your git username and email address:
+
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+
+#Now ceate a local git repo for petclinic as follows:
+
+git init
+git add .
+git commit -m "Baseline commit"

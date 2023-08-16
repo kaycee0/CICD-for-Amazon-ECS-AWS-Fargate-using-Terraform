@@ -1,0 +1,11 @@
+#Initialise Terraform:
+
+terraform init
+
+#Build the infrastructure and pipeline using terraform:
+
+terraform apply
+
+#Terraform will display an action plan. When asked whether you want to proceed with the actions, enter yes.
+
+#Wait for Terraform to complete the build before proceeding. It will take few minutes to complete “terraform apply”

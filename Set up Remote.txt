@@ -1,0 +1,18 @@
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+#From the output of the Terraform build, note the Terraform output source_repo_clone_url_http.
+
+cd ../terraform
+export tf_source_repo_clone_url_http=$(terraform output source_repo_clone_url_http)
+
+#Set this up as a remote for your git repo as follows:
+
+cd ../petclinic
+git remote add origin $tf_source_repo_clone_url_http
+git remote -v
+
+#You should see something like:
+
+origin  https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/petclinic (fetch)
+origin  https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/petclinic (push)

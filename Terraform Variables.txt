@@ -1,0 +1,7 @@
+#Set Terraform variables
+#switch to the terraform folder.
+
+cd terraform
+
+#Edit terraform.tfvars. Leave the aws_profile as "default", and set aws_region to the correct value for your environment.
+

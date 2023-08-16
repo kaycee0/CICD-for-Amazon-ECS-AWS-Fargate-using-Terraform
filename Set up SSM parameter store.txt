@@ -1,0 +1,6 @@
+#1. Set up SSM Parameter Store
+#Our Terraform config files will expect to find a password for the RDS MySQL database in SSM parameter store.
+
+#Set up an SSM parameter to store the password as follows:
+
+aws ssm put-parameter --name /database/password  --value mysqlpassword --type SecureString

@@ -1,0 +1,21 @@
+#1. Install text utilities
+
+sudo yum -y install jq gettext
+
+#2. Configure the AWS cli with our current region as default:
+
+export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)
+echo "export AWS_REGION=${AWS_REGION}" >> ~/.bash_profile
+aws configure set default.region ${AWS_REGION}
+aws configure get default.region
+
+#3. Set up env variable for account id
+export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+echo "export AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID}" >> ~/.bash_profile
+
+#4. Download workshop resources
+#Download resource files that you will need to support the lab setup.
+
+wget https://github.com/aws-samples/aws-ecs-cicd-terraform/archive/master.zip
+unzip master.zip
+cd aws-ecs-cicd-terraform-master

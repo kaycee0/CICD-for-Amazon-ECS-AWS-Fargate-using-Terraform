@@ -1,0 +1,11 @@
+#Clean up the environment
+
+cd ../terraform
+terraform destroy -auto-approve
+#This terminates all running services and resources down to the VPCs
+
+#Delete backend bucket
+#Locate the S3 bucket used by Terraform and delete it as follows:
+
+aws s3 rb --force s3://$terraform_bucket_name
+
